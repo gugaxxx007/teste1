@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador</title>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+<button id="começarbtn" class="começarbutton" onclick="play()">
+    <img src="play.png" alt="Play">
+</button>
+<button id="pausarbtn" class="pausarbutton" onclick="pause()">
+    <img src="pause.jpeg" alt="Pausar">
+</button>
+<button id="reiniciarbtn" class="reiniciarbutton" onclick="stop1()">
+    <img src="resete.png" alt="Parar">
+</button>
+<div id="statusbox">
+    <img id="statusimg" src="" alt="">
+    <span id="count">0</span>
+</div>
+
+<script>
+    var statusbox = document.getElementById('statusbox');
+    var statusimg = document.getElementById('statusimg');
+    var countElement = document.getElementById('count');
+    var isplaying = false;
+    var counter = 0;
+
+    function play() {
+        statusimg.src = 'play.png';
+        statusbox.style.backgroundColor = '#4CAF50';
+        isplaying = true;
+        updatecounter();
+    }
+
+    function pause() {
+        statusimg.src = 'pause.jpeg';
+        statusbox.style.backgroundColor = '#FFC107';
+        isplaying = false;
+    }
+
+    function stop1() {
+        statusimg.src = 'resete.png';
+        statusbox.style.backgroundColor = '#4CAF50';
+        isplaying = true;
+        counter = 0;
+        updatecounter();
+    }
+
+    function updatecounter() {
+        if (isplaying) {
+            countElement.innerText = counter++;
+            setTimeout(updatecounter, 1000);
+        }
+    }
+</script>
+
+
+</html>
+<body>
+   
